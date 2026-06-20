@@ -6,7 +6,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { io, Socket } from 'socket.io-client';
 import { 
-  Building2, Monitor, Stethoscope, Sparkles, Clock, 
+  Building2, Monitor, Stethoscope, Sparkles, Clock, Tv2,
   ChevronRight, HeartPulse, ShieldAlert, Loader2, RefreshCw 
 } from 'lucide-react';
 
@@ -16,6 +16,7 @@ import ActiveCallBanner from './components/ActiveCallBanner.js';
 import RegistrationForm from './components/RegistrationForm.js';
 import DrDashboard from './components/DrDashboard.js';
 import WaitingTimeline from './components/WaitingTimeline.js';
+import PatientWaitingRoom from './components/PatientWaitingRoom.js';
 
 export default function App() {
   const [activeClinicId, setActiveClinicId] = useState('clinic-1');
@@ -27,7 +28,7 @@ export default function App() {
   const [predictionLoading, setPredictionLoading] = useState(true);
   const [currentCall, setCurrentCall] = useState<any>(null);
 
-  const [viewMode, setViewMode] = useState<'lobby' | 'doctor'>('lobby'); // lobby = Patient Facing, doctor = Staff Console
+  const [viewMode, setViewMode] = useState<'lobby' | 'doctor' | 'patient-tv'>('lobby');
   const [loading, setLoading] = useState(true);
 
   const socketRef = useRef<Socket | null>(null);
@@ -278,6 +279,18 @@ export default function App() {
                 <Stethoscope className="w-3.5 h-3.5" />
                 <span>Clinician Console</span>
               </button>
+              <button
+                onClick={() => setViewMode('patient-tv')}
+                className={`flex items-center gap-1.5 text-xs font-serif font-bold px-4 py-2 rounded-full transition-all cursor-pointer ${
+                  viewMode === 'patient-tv'
+                    ? 'bg-[#5A634D] text-white shadow-sm'
+                    : 'text-[#9A9A8A] hover:text-[#5A634D]'
+                }`}
+                id="btn-nav-patient-tv"
+              >
+                <Tv2 className="w-3.5 h-3.5" />
+                <span>Patient Display</span>
+              </button>
             </div>
 
           </div>
@@ -300,6 +313,12 @@ export default function App() {
 
           <div className="flex flex-wrap items-center gap-5 p-4 bg-[#F9F8F6] border border-[#E0DBCF] rounded-2xl text-xs font-sans">
             <div>
+              <span className="text-[#9A9A8A] block text-[9px] font-serif font-bold uppercase tracking-widest mb-1">WAITING NOW</span>
+              <span className="font-serif font-bold text-[#4A4A35]">
+                {queueUpdate ? queueUpdate.entries.filter(e => e.status === 'waiting').length : 0} patients
+              </span>
+            </div>
+            <div className="border-l border-[#E0DBCF] pl-5">
               <span className="text-[#9A9A8A] block text-[9px] font-serif font-bold uppercase tracking-widest mb-1">ESTIMATED DELAY</span>
               <span className="font-serif font-bold text-[#4A4A35]">
                 {queueUpdate ? queueUpdate.entries.filter(e => e.status === 'waiting').length * (currentClinic?.avg_consultation_time || 12) : 0} mins total
@@ -326,7 +345,10 @@ export default function App() {
             <div className="lg:col-span-8 space-y-6">
               <RegistrationForm onSubmit={handlePatientAddSubmit} />
               
-              <WaitingTimeline queueUpdate={queueUpdate} />
+              <WaitingTimeline
+                queueUpdate={queueUpdate}
+                avgConsultTime={currentClinic?.avg_consultation_time || 12}
+              />
             </div>
 
             {/* AI Predictions & Lifestyle Advices (Right side) */}
@@ -339,7 +361,7 @@ export default function App() {
             </div>
 
           </div>
-        ) : (
+        ) : viewMode === 'doctor' ? (
           /* ==================== PHYSICIAN WORKSTATION VIEW ==================== */
           <DrDashboard
             clinic={currentClinic}
@@ -348,6 +370,14 @@ export default function App() {
             onCompletePatient={handleCompletePatient}
             onEmergencyOverride={handleEmergencyOverride}
             onUpdateAvgTime={handleUpdateAvgTime}
+          />
+        ) : (
+          /* ==================== PATIENT TV DISPLAY VIEW ==================== */
+          <PatientWaitingRoom
+            queueUpdate={queueUpdate}
+            currentCall={currentCall}
+            avgConsultTime={currentClinic?.avg_consultation_time || 12}
+            clinicName={currentClinic?.name || 'Clinic'}
           />
         )}
 

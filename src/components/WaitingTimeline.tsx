@@ -11,9 +11,10 @@ import { QueueEntry, QueueUpdate, QueueStatus } from '../types.js';
 
 interface WaitingTimelineProps {
   queueUpdate: QueueUpdate | null;
+  avgConsultTime?: number;
 }
 
-export default function WaitingTimeline({ queueUpdate }: WaitingTimelineProps) {
+export default function WaitingTimeline({ queueUpdate, avgConsultTime = 12 }: WaitingTimelineProps) {
   const [privacyMask, setPrivacyMask] = useState(false);
 
   const getTriageLabel = (score?: number) => {
@@ -51,14 +52,11 @@ export default function WaitingTimeline({ queueUpdate }: WaitingTimelineProps) {
     return `${name[0]}***`;
   };
 
-  // Compute clock timetables cumulatively based on positions
+  // Compute clock timetables cumulatively based on real clinic avg consultation time
   const getEstimatedClockTime = (index: number) => {
-    // Current base time
     const now = new Date();
-    const clinicAvgConsultMins = 12; // Static helper divisor
-    
-    // Add cumulative wait chunks
-    now.setMinutes(now.getMinutes() + (index * clinicAvgConsultMins));
+    // Use real clinic avg consultation time passed as prop
+    now.setMinutes(now.getMinutes() + (index * avgConsultTime));
     
     const hours = now.getHours();
     const minutes = now.getMinutes().toString().padStart(2, '0');
