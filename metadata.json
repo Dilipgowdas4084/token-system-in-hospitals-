@@ -1,0 +1,6 @@
+{
+  "name": "Token System",
+  "description": "An intelligent medical queuing system with real-time symptoms pre-screening and clinical triage analysis powered by Gemini AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

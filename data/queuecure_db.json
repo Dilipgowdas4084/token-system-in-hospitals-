@@ -1,0 +1,254 @@
+{
+  "clinics": [
+    {
+      "id": "clinic-1",
+      "name": "Central Care Clinic",
+      "address": "123 Health Ave, Medical District",
+      "avg_consultation_time": 12,
+      "created_at": "2026-06-19T22:07:37.821Z"
+    },
+    {
+      "id": "clinic-2",
+      "name": "Pediatrics Specialists",
+      "address": "456 Wellness Blvd, Ste 200",
+      "avg_consultation_time": 5,
+      "created_at": "2026-06-19T22:07:37.821Z"
+    }
+  ],
+  "patients": [
+    {
+      "id": "pat-1",
+      "clinic_id": "clinic-1",
+      "name": "Sarah Jenkins",
+      "age": 34,
+      "gender": "Female",
+      "phone": "123-456-7890",
+      "is_priority": false,
+      "is_emergency": false,
+      "triage_score": 4,
+      "triage_notes": "Mild persistent cough, normal vitals.",
+      "created_at": "2026-06-19T19:37:37.821Z",
+      "updated_at": "2026-06-19T19:37:37.821Z"
+    },
+    {
+      "id": "pat-2",
+      "clinic_id": "clinic-1",
+      "name": "George Miller",
+      "age": 72,
+      "gender": "Male",
+      "phone": "987-654-3210",
+      "is_priority": true,
+      "priority_reason": "Elderly / Chest Discomfort",
+      "is_emergency": false,
+      "triage_score": 2,
+      "triage_notes": "Hypertension history, slight tightness. Prioritized.",
+      "created_at": "2026-06-19T20:01:37.821Z",
+      "updated_at": "2026-06-19T20:01:37.821Z"
+    },
+    {
+      "id": "pat-3",
+      "clinic_id": "clinic-1",
+      "name": "David Kim",
+      "age": 12,
+      "gender": "Male",
+      "phone": "555-019-2834",
+      "is_priority": false,
+      "is_emergency": false,
+      "triage_score": 5,
+      "triage_notes": "Routine school checkup immunization.",
+      "created_at": "2026-06-19T20:37:37.821Z",
+      "updated_at": "2026-06-19T20:37:37.821Z"
+    },
+    {
+      "id": "pat-4",
+      "clinic_id": "clinic-1",
+      "name": "Amanda Ross",
+      "age": 28,
+      "gender": "Female",
+      "phone": "555-443-1289",
+      "is_priority": false,
+      "is_emergency": false,
+      "triage_score": 3,
+      "triage_notes": "Moderate ankle swelling after hiking. Cold compress supplied.",
+      "created_at": "2026-06-19T21:19:37.821Z",
+      "updated_at": "2026-06-19T21:19:37.821Z"
+    },
+    {
+      "id": "pat-1781906935765",
+      "clinic_id": "clinic-1",
+      "name": "dilip",
+      "age": 20,
+      "gender": "Male",
+      "phone": "9380842043",
+      "is_priority": false,
+      "is_emergency": false,
+      "triage_score": 4,
+      "triage_notes": "Symptom report: headace and body pain",
+      "created_at": "2026-06-19T22:08:55.765Z",
+      "updated_at": "2026-06-19T22:08:55.765Z"
+    }
+  ],
+  "queue_entries": [
+    {
+      "id": "qe-1",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-1",
+      "token_number": "T-001",
+      "status": "completed",
+      "position": 1,
+      "estimated_wait": 12,
+      "actual_wait": 10,
+      "called_at": "2026-06-19T20:07:37.821Z",
+      "started_at": "2026-06-19T20:07:37.821Z",
+      "completed_at": "2026-06-19T20:19:37.821Z",
+      "created_at": "2026-06-19T19:37:37.821Z",
+      "updated_at": "2026-06-19T20:19:37.821Z"
+    },
+    {
+      "id": "qe-2",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-2",
+      "token_number": "T-002",
+      "status": "completed",
+      "position": 1,
+      "estimated_wait": 15,
+      "actual_wait": 22,
+      "called_at": "2026-06-19T21:49:37.821Z",
+      "started_at": "2026-06-19T21:49:37.821Z",
+      "created_at": "2026-06-19T20:01:37.821Z",
+      "updated_at": "2026-06-19T22:10:28.484Z",
+      "completed_at": "2026-06-19T22:10:28.484Z"
+    },
+    {
+      "id": "qe-3",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-3",
+      "token_number": "T-003",
+      "status": "completed",
+      "position": 1,
+      "estimated_wait": 24,
+      "created_at": "2026-06-19T20:37:37.821Z",
+      "updated_at": "2026-06-20T00:09:55.783Z",
+      "called_at": "2026-06-20T00:09:42.550Z",
+      "started_at": "2026-06-20T00:09:42.550Z",
+      "actual_wait": 212,
+      "completed_at": "2026-06-20T00:09:55.783Z"
+    },
+    {
+      "id": "qe-4",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-4",
+      "token_number": "T-004",
+      "status": "completed",
+      "position": 1,
+      "estimated_wait": 36,
+      "created_at": "2026-06-19T21:19:37.821Z",
+      "updated_at": "2026-06-20T00:06:21.636Z",
+      "called_at": "2026-06-19T23:59:23.092Z",
+      "started_at": "2026-06-19T23:59:23.092Z",
+      "actual_wait": 159,
+      "completed_at": "2026-06-20T00:06:21.636Z"
+    },
+    {
+      "id": "qe-1781906935767",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-1781906935765",
+      "token_number": "T-004",
+      "status": "completed",
+      "position": 1,
+      "estimated_wait": 25,
+      "actual_wait": 117,
+      "called_at": "2026-06-20T00:06:28.902Z",
+      "started_at": "2026-06-20T00:06:28.902Z",
+      "completed_at": "2026-06-20T00:09:31.554Z",
+      "created_at": "2026-06-19T22:08:55.767Z",
+      "updated_at": "2026-06-20T00:09:31.554Z"
+    }
+  ],
+  "consultations": [
+    {
+      "id": "c-1",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-1",
+      "queue_entry_id": "qe-1",
+      "actual_duration": 10,
+      "doctor_notes": "Bronchial irritation. Prescribed inhaler and hydration.",
+      "created_at": "2026-06-19T20:19:37.821Z"
+    },
+    {
+      "id": "c-1781907028485",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-2",
+      "queue_entry_id": "qe-2",
+      "actual_duration": 10,
+      "doctor_notes": "Consultation processed successfully.",
+      "created_at": "2026-06-19T22:10:28.485Z"
+    },
+    {
+      "id": "c-1781913981637",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-4",
+      "queue_entry_id": "qe-4",
+      "actual_duration": 10,
+      "doctor_notes": "just take dolo 650 twice a day",
+      "created_at": "2026-06-20T00:06:21.637Z"
+    },
+    {
+      "id": "c-1781914171555",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-1781906935765",
+      "queue_entry_id": "qe-1781906935767",
+      "actual_duration": 10,
+      "doctor_notes": "Consultation processed successfully.",
+      "created_at": "2026-06-20T00:09:31.555Z"
+    },
+    {
+      "id": "c-1781914195784",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-3",
+      "queue_entry_id": "qe-3",
+      "actual_duration": 10,
+      "doctor_notes": "Consultation processed successfully.",
+      "created_at": "2026-06-20T00:09:55.784Z"
+    }
+  ],
+  "analytics": [
+    {
+      "id": "an-1",
+      "clinic_id": "clinic-1",
+      "date": "2026-06-19",
+      "total_patients": 16,
+      "avg_wait_time": 87,
+      "avg_consultation_time": 11,
+      "peak_hour": 10,
+      "created_at": "2026-06-19T22:07:37.821Z"
+    },
+    {
+      "id": "an-1781906944467",
+      "clinic_id": "clinic-2",
+      "date": "2026-06-19",
+      "total_patients": 0,
+      "avg_wait_time": 0,
+      "avg_consultation_time": 0,
+      "created_at": "2026-06-19T22:09:04.467Z"
+    },
+    {
+      "id": "an-1781913633382",
+      "clinic_id": "clinic-2",
+      "date": "2026-06-20",
+      "total_patients": 0,
+      "avg_wait_time": 0,
+      "avg_consultation_time": 0,
+      "created_at": "2026-06-20T00:00:33.382Z"
+    },
+    {
+      "id": "an-1781913633630",
+      "clinic_id": "clinic-1",
+      "date": "2026-06-20",
+      "total_patients": 2,
+      "avg_wait_time": 165,
+      "avg_consultation_time": 10,
+      "created_at": "2026-06-20T00:00:33.630Z"
+    }
+  ]
+}

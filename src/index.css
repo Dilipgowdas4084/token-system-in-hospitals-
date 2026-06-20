@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@450;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Lora", "Playfair Display", Georgia, serif;
+  --font-display: "Lora", "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  --color-natural-bg: #F2F0EB;
+  --color-natural-text: #3D3D3D;
+  --color-natural-dark: #4A4A35;
+  --color-natural-sage: #5A634D;
+  --color-natural-blue: #70939B;
+  --color-natural-coral: #D67D5B;
+  --color-natural-border: #E0DBCF;
+  --color-natural-light: #F9F8F6;
+  --color-natural-emergency-bg: #FFF5F2;
+  --color-natural-priority-bg: #E8EDE7;
+}
+
+/* Custom styles and smooth animations */
+body {
+  background-color: #F2F0EB; /* natural-bg */
+  color: #3D3D3D; /* natural-text */
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #E0DBCF;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9A9A8A;
+}
+
+/* Custom earthy range input */
+input[type="range"] {
+  accent-color: #5A634D;
+}
