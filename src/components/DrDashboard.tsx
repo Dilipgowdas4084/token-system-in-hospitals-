@@ -107,9 +107,9 @@ export default function DrDashboard({
 
   const getTriageBadge = (score: number) => {
     switch (score) {
-      case 1: return 'bg-[#FFF5F2] text-[#D67D5B] border-[#F2D7D0]';
-      case 2: return 'bg-[#FFF5F2] text-[#D67D5B] border-[#F2D7D0]';
-      case 3: return 'bg-[#FFF5F2] text-[#D67D5B] border-[#CBD2C6]';
+      case 1: return 'bg-red-100 text-red-700 border-red-300';
+      case 2: return 'bg-orange-100 text-orange-700 border-orange-300';
+      case 3: return 'bg-yellow-100 text-yellow-700 border-yellow-300';
       case 4: return 'bg-[#E8EDE7] text-[#5A634D] border-[#CBD2C6]';
       default: return 'bg-[#F9F8F6] text-[#9A9A8A] border-[#E0DBCF]';
     }

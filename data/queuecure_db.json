@@ -114,6 +114,20 @@
       "triage_notes": "Symptom report: sever migraine and dry caugh",
       "created_at": "2026-06-20T00:32:25.762Z",
       "updated_at": "2026-06-20T00:32:25.762Z"
+    },
+    {
+      "id": "pat-1781948960291",
+      "clinic_id": "clinic-1",
+      "name": "moith",
+      "age": 32,
+      "gender": "Male",
+      "phone": "123456780",
+      "is_priority": false,
+      "is_emergency": false,
+      "triage_score": 4,
+      "triage_notes": "Symptom report: internal bleeding",
+      "created_at": "2026-06-20T09:49:20.291Z",
+      "updated_at": "2026-06-20T09:49:20.291Z"
     }
   ],
   "queue_entries": [
@@ -197,11 +211,14 @@
       "clinic_id": "clinic-1",
       "patient_id": "pat-1781915445227",
       "token_number": "T-001",
-      "status": "waiting",
+      "status": "in_consultation",
       "position": 1,
       "estimated_wait": 0,
       "created_at": "2026-06-20T00:30:45.230Z",
-      "updated_at": "2026-06-20T00:32:25.764Z"
+      "updated_at": "2026-06-20T09:49:20.294Z",
+      "called_at": "2026-06-20T09:47:38.760Z",
+      "started_at": "2026-06-20T09:47:38.760Z",
+      "actual_wait": 556
     },
     {
       "id": "qe-1781915545764",
@@ -212,7 +229,18 @@
       "position": 2,
       "estimated_wait": 10,
       "created_at": "2026-06-20T00:32:25.764Z",
-      "updated_at": "2026-06-20T00:32:25.765Z"
+      "updated_at": "2026-06-20T09:49:20.294Z"
+    },
+    {
+      "id": "qe-1781948960293",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-1781948960291",
+      "token_number": "T-003",
+      "status": "waiting",
+      "position": 3,
+      "estimated_wait": 15,
+      "created_at": "2026-06-20T09:49:20.293Z",
+      "updated_at": "2026-06-20T09:49:20.295Z"
     }
   ],
   "consultations": [
@@ -295,8 +323,8 @@
       "id": "an-1781913633630",
       "clinic_id": "clinic-1",
       "date": "2026-06-20",
-      "total_patients": 2,
-      "avg_wait_time": 165,
+      "total_patients": 3,
+      "avg_wait_time": 361,
       "avg_consultation_time": 10,
       "created_at": "2026-06-20T00:00:33.630Z"
     }

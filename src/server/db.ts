@@ -252,6 +252,11 @@ export class DatabaseService {
   // Patient methods
   async createPatient(data: Partial<Patient> & { clinicId: string; name: string }): Promise<Patient> {
     await this.initialize();
+
+    // Auto-promote patients with triage score 1–3 (Critical/Emergent/Urgent) to priority
+    const triageScore = data.triage_score ?? 5;
+    const autoPriority = triageScore <= 3;
+
     const patient: Patient = {
       id: data.id || `pat-${Date.now()}`,
       clinic_id: data.clinicId,
@@ -259,10 +264,10 @@ export class DatabaseService {
       age: data.age,
       gender: data.gender,
       phone: data.phone,
-      is_priority: data.is_priority || false,
-      priority_reason: data.priority_reason,
-      is_emergency: data.is_emergency || false,
-      triage_score: data.triage_score,
+      is_priority: data.is_priority || autoPriority,
+      priority_reason: data.priority_reason || (autoPriority ? `Triage Level ${triageScore} — Auto-prioritized` : undefined),
+      is_emergency: data.is_emergency || triageScore === 1,
+      triage_score: triageScore,
       triage_notes: data.triage_notes,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
@@ -367,7 +372,7 @@ export class DatabaseService {
       return { ...qe, patient };
     });
 
-    // Sort: Emergency > priority > position
+    // Sort: Emergency > priority > triage_score (lower = more critical) > position
     waitingWithPatients.sort((a, b) => {
       const aEmerg = a.patient?.is_emergency ? 1 : 0;
       const bEmerg = b.patient?.is_emergency ? 1 : 0;
@@ -376,6 +381,11 @@ export class DatabaseService {
       const aPrio = a.patient?.is_priority ? 1 : 0;
       const bPrio = b.patient?.is_priority ? 1 : 0;
       if (aPrio !== bPrio) return bPrio - aPrio;
+
+      // Lower triage score = more serious (1=critical, 5=routine)
+      const aScore = a.patient?.triage_score ?? 5;
+      const bScore = b.patient?.triage_score ?? 5;
+      if (aScore !== bScore) return aScore - bScore;
 
       return a.position - b.position;
     });

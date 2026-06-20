@@ -19,11 +19,11 @@ export default function WaitingTimeline({ queueUpdate, avgConsultTime = 12 }: Wa
 
   const getTriageLabel = (score?: number) => {
     switch (score) {
-      case 1: return { text: 'Level 1: Severe Urgent', bg: 'bg-[#FFF5F2] text-[#D67D5B] border-[#F2D7D0]' };
-      case 2: return { text: 'Level 2: Emergent', bg: 'bg-[#FFF5F2] text-[#D67D5B] border-[#F2D7D0]' };
-      case 3: return { text: 'Level 3: Urgent', bg: 'bg-[#FFF5F2] text-[#D67D5B] border-[#CBD2C6]' };
-      case 4: return { text: 'Level 4: Routine Wait', bg: 'bg-[#E8EDE7] text-[#5A634D] border-[#CBD2C6]' };
-      default: return { text: 'Level 5: Non-Urgent', bg: 'bg-[#F9F8F6] text-[#9A9A8A] border-[#E0DBCF]' };
+      case 1: return { text: '🔴 Level 1 — Critical', bg: 'bg-red-100 text-red-700 border-red-300' };
+      case 2: return { text: '🟠 Level 2 — Emergent', bg: 'bg-orange-100 text-orange-700 border-orange-300' };
+      case 3: return { text: '🟡 Level 3 — Urgent', bg: 'bg-yellow-100 text-yellow-700 border-yellow-300' };
+      case 4: return { text: '🟢 Level 4 — Routine', bg: 'bg-[#E8EDE7] text-[#5A634D] border-[#CBD2C6]' };
+      default: return { text: '⚪ Level 5 — Non-Urgent', bg: 'bg-[#F9F8F6] text-[#9A9A8A] border-[#E0DBCF]' };
     }
   };
 
