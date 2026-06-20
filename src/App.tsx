@@ -227,7 +227,7 @@ export default function App() {
                   Smart Flow
                 </span>
               </div>
-              <p className="text-[10px] uppercase tracking-widest text-[#9A9A8A] font-bold mt-1">St. Luke Medical Center • Station B</p>
+              <p className="text-[10px] uppercase tracking-widest text-[#9A9A8A] font-bold mt-1">Sridevi medical center . banglore</p>
             </div>
           </div>
 

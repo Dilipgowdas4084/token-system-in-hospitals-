@@ -86,6 +86,34 @@
       "triage_notes": "Symptom report: headace and body pain",
       "created_at": "2026-06-19T22:08:55.765Z",
       "updated_at": "2026-06-19T22:08:55.765Z"
+    },
+    {
+      "id": "pat-1781915445227",
+      "clinic_id": "clinic-1",
+      "name": "Dilip Gowda s",
+      "age": 20,
+      "gender": "Male",
+      "phone": "9380842043",
+      "is_priority": false,
+      "is_emergency": false,
+      "triage_score": 4,
+      "triage_notes": "Symptom report: body pain from 3 days , took normal tablets(local) no improvement",
+      "created_at": "2026-06-20T00:30:45.227Z",
+      "updated_at": "2026-06-20T00:30:45.227Z"
+    },
+    {
+      "id": "pat-1781915545762",
+      "clinic_id": "clinic-1",
+      "name": "liam",
+      "age": 32,
+      "gender": "Male",
+      "phone": "123456789",
+      "is_priority": false,
+      "is_emergency": false,
+      "triage_score": 4,
+      "triage_notes": "Symptom report: sever migraine and dry caugh",
+      "created_at": "2026-06-20T00:32:25.762Z",
+      "updated_at": "2026-06-20T00:32:25.762Z"
     }
   ],
   "queue_entries": [
@@ -163,6 +191,28 @@
       "completed_at": "2026-06-20T00:09:31.554Z",
       "created_at": "2026-06-19T22:08:55.767Z",
       "updated_at": "2026-06-20T00:09:31.554Z"
+    },
+    {
+      "id": "qe-1781915445230",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-1781915445227",
+      "token_number": "T-001",
+      "status": "waiting",
+      "position": 1,
+      "estimated_wait": 0,
+      "created_at": "2026-06-20T00:30:45.230Z",
+      "updated_at": "2026-06-20T00:32:25.764Z"
+    },
+    {
+      "id": "qe-1781915545764",
+      "clinic_id": "clinic-1",
+      "patient_id": "pat-1781915545762",
+      "token_number": "T-002",
+      "status": "waiting",
+      "position": 2,
+      "estimated_wait": 10,
+      "created_at": "2026-06-20T00:32:25.764Z",
+      "updated_at": "2026-06-20T00:32:25.765Z"
     }
   ],
   "consultations": [
