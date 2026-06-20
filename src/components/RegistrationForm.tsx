@@ -218,7 +218,7 @@ export default function RegistrationForm({ onSubmit }: RegistrationFormProps) {
             id="input-symptoms"
           />
           <p className="text-[10px] text-[#9A9A8A] font-sans mt-2">
-            * Symptoms will be securely validated in real-time by clinical Gemini-3.5 analysis to prioritize line order.
+            * Symptoms will be securely validated in real-time by clinical AI analysis to prioritize line order.
           </p>
         </div>
 

@@ -263,19 +263,19 @@ export default function DrDashboard({
                       {enriching ? (
                         <>
                           <Loader2 className="w-3.5 h-3.5 animate-spin text-[#5A634D]" />
-                          <span>Gemini Processing EHR Chart...</span>
+                          <span>AI Processing EHR Chart...</span>
                         </>
                       ) : (
                         <>
                           <Sparkles className="w-3.5 h-3.5" />
-                          <span>Enrich via Gemini</span>
+                          <span>Enrich via AI</span>
                         </>
                       )}
                     </button>
                   </div>
                   <textarea
                     rows={4}
-                    placeholder="Scribble raw medical observations, dosage details, checks... Tip: Write simple quick words, then hit 'Enrich' above! Gemini AI automatically structures into high-fidelity formatted digital care charts!"
+                    placeholder="Scribble raw medical observations, dosage details, checks... Tip: Write simple quick words, then hit 'Enrich' above! Our AI automatically structures into high-fidelity formatted digital care charts!"
                     value={rawNotes}
                     onChange={(e) => setRawNotes(e.target.value)}
                     className="w-full bg-[#F9F8F6] border border-[#E0DBCF] text-[#3D3D3D] text-sm rounded-xl p-4 font-mono focus:bg-white focus:outline-none focus:border-[#5A634D]"

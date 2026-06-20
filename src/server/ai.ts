@@ -21,9 +21,9 @@ export class AIService {
           },
         },
       });
-      console.log('✨ Gemini AI Service initialized with User-Agent telemetry');
+      console.log('✨ AI Service initialized successfully');
     } else {
-      console.warn('⚠️ GEMINI_API_KEY not configured. Gemini capabilities will fall back to rule-based logic.');
+      console.warn('⚠️ GEMINI_API_KEY not configured. AI capabilities will fall back to rule-based logic.');
     }
   }
 
@@ -99,7 +99,7 @@ You must assign:
         reason: result.priorityReason || '',
       };
     } catch (error) {
-      console.error('Error assessing triage with Gemini:', error);
+      console.error('Error assessing triage with AI:', error);
       return defaultFallback;
     }
   }
@@ -165,7 +165,7 @@ Generate a JSON object predicting the optimal hour to check in later today to mi
       const text = response.text || '';
       return JSON.parse(text);
     } catch (error) {
-      console.error('Error raising queue prediction via Gemini:', error);
+      console.error('Error raising queue prediction via AI:', error);
       return defaultFallback;
     }
   }

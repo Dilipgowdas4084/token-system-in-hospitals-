@@ -109,7 +109,7 @@ async function startServer() {
         return res.status(400).json({ error: 'Name and clinicId are required' });
       }
 
-      // Assess clinical triage via Gemini
+      // Assess clinical triage via AI
       const triage = await ai.assessTriage(name, age ? Number(age) : undefined, gender, symptoms);
 
       const patient = await db.createPatient({
@@ -186,7 +186,7 @@ async function startServer() {
           throw new Error('Required arguments: Name, ClinicId');
         }
 
-        // Gemini triage assessment
+        // AI triage assessment
         const triage = await ai.assessTriage(name, age ? Number(age) : undefined, gender, symptoms);
 
         const patient = await db.createPatient({

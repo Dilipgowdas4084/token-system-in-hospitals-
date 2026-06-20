@@ -118,7 +118,7 @@ export class WaitTimeService {
     const todayAnalytics = await this.db.getClinicAnalytics(clinicId);
     const totalTreated = todayAnalytics?.total_patients || 0;
 
-    // Ask Gemini AI for predictive advice
+    // Ask AI for predictive advice
     const aiPrediction = await this.ai.predictOptimalTime(
       clinicName,
       waitingCount,
